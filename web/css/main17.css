@@ -1,0 +1,684 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "arial";
+    font-size: 14px;
+}
+/*Color Tema: #b01e31*/ 
+body{    
+    background-color: #f1f1f1;
+    background-image: url("../img/Fondo.png");
+}
+header, section , aside, footer{
+    display: block;
+    margin: 10px;
+    background-color: #ffffff;
+    border: 1px solid #c1c1c1;
+    border-radius: 10px;
+}
+nav{
+    background-color: #b01e31;
+}
+nav ul li{
+    width: 24%;
+    display: inline-block;
+    list-style: none;
+}
+nav ul li:nth-of-type(1){
+    display: none;
+    background-image: url("../img/Menu.png");
+    background-size: auto 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+nav ul li:nth-of-type(2){
+    background-image: url("../img/Logo.png");
+    background-size: auto 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+nav ul li a{
+    display: block;
+    text-align: center;
+    font-size: 17px;
+    padding: 17px 10px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+nav ul li a:hover{
+    background-color: rgba(0,0,0,0.3);
+}
+header{
+    padding: 130px 0;
+    background-image: url("../img/Cabecera.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+header h1{
+    width: 400px;
+    margin: auto;
+    padding: 40px 0;
+    text-align: center;
+    font-size: 50px;
+    background: rgba(255,255,255, 0.6);
+    border-radius: 10px;
+}
+section{
+    padding: 10px;
+    overflow: hidden;
+}
+section hgroup{
+    font-size: 17px;
+    color: #b01e31;
+    font-weight: bold;
+}
+section .BarraDesplHorizontal{
+    display: flex;
+    padding: 10px;
+    overflow-y: hidden;
+}
+
+section form{
+    width: 70%;
+    margin: 10px 0 0 0;
+}
+section form ul li{
+    list-style: none;
+}
+section form ul .CargarImagen{
+    display: block;
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+    margin: 10px auto;
+    border-radius: 15px;
+    background-color: #b01e31;
+    background-image: url("../img/Camara.png");
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 0.2s ease;
+}
+section form ul .CargarImagen:hover{
+    background-size: 75%;
+}
+section form input[type="text"],
+section form input[type="password"],
+section form input[type="email"],
+section form input[type="submit"],
+section form input[type="number"],
+section form input[type="datetime-local"],
+section form textarea, section form select{
+    width: 96%;
+    margin: 0 0 10px 0;
+    padding: 5px;
+    border: 1px solid #b01e31;
+    border-radius: 10px;
+}
+section form textarea{
+    max-width: 96%;
+    min-width: 96%;
+    min-height: 75px;
+    border-radius: 10px 10px 0 10px;
+}
+section form select{
+    width: 98%;
+}
+section form input[type="submit"]{
+    width: 100%;
+    background-color: #b01e31;
+    padding: 10px;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+section form input[type="file"]{
+    height: 100px;
+    transform: translateY(-22px);
+    cursor: pointer;
+}
+section table{
+    border-collapse: collapse;
+}
+section table tr th,
+section table tr td{
+    border: 1px solid #b01e31;
+    padding: 5px;
+}
+section details{
+    margin: 10px 0;
+}
+section details summary{
+    font-weight: bold;
+}
+
+
+#SeccionLados, #SeccionesCentro{
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 auto;
+}
+#SeccionLados:only-of-type, #SeccionesCentro:only-of-type{
+    display: block;
+}
+#SeccionLados{
+    width: 32.5%;
+}
+#SeccionLados form{
+    width: 100%;
+}
+#SeccionLados form img{   
+    display: block;
+    width: 55%;
+    margin: 0 auto;
+    border: 1px solid #c1c1c1;
+    border-radius: 10px;
+}
+#SeccionesCentro{
+    width: 65%;   
+}
+.SeccionSinFondo{
+    background-color: transparent;
+    border: none;
+}
+.SeccionSinFondo article{ 
+    border-radius: 10px;
+    border: 1px solid #c1c1c1;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+
+#SeccionesCentro .InformacionPersona article{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 10px 0;
+}
+#SeccionesCentro .InformacionPersona article:nth-of-type(1){
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    border: 1px solid #c1c1c1;
+    overflow: hidden;
+}
+#SeccionesCentro .InformacionPersona article:nth-of-type(1) img{
+    width: 100%;
+}
+#SeccionesCentro .InformacionPersona article:nth-of-type(2) ul{
+    list-style: none;
+    padding: 10px;
+}
+
+
+.SeccionEmpresa header{
+    padding: 0;
+    height: 250px;
+    overflow: hidden;
+    background-image: none;
+}
+.SeccionEmpresa header img{
+    width: 100%;
+}
+.SeccionEmpresa .InformacionEmpresa h2{
+    font-size: 25px;
+    text-align: center;
+}
+.SeccionEmpresa .InformacionEmpresa ul{
+    list-style: none; 
+}
+.SeccionEmpresa .InformacionEmpresa ul:nth-of-type(2) li{
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: bold;
+    margin: 5px;
+}
+.SeccionEmpresa .InformacionEmpresa ul:nth-of-type(2) li a{
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+}
+.SeccionEmpresa .InformacionEmpresa ul:nth-of-type(2) li,
+.Comentarios form ul:nth-of-type(2) label{
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    background-image: url("../img/Calificar.png");
+    background-size: 100%;
+    filter: grayscale(1);
+}
+.SeccionEmpresa .InformacionEmpresa ul:nth-of-type(2) li{
+    display: inline-block;
+    margin: 10px 0 0 0;
+}
+.SeccionEmpresa section table tr td:nth-of-type(1) ul{
+    list-style: none;
+}
+.SeccionEmpresa section table tr td:nth-of-type(1) ul li{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #b01e31;
+}
+.SeccionEmpresa section table tr td:nth-of-type(1) ul li a{
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.SeccionEmpresa section table tr td:nth-of-type(1) ul li:nth-of-type(1) a{
+    background-image: url("../img/Eliminar.png");
+    background-size: 75%;
+}
+.SeccionEmpresa section table tr td:nth-of-type(1) ul li:nth-of-type(2) a{
+    background-image: url("../img/CarritoCompras.png");
+    background-size: 80%;
+}
+.SeccionEmpresa section table tr td:nth-of-type(2) form{
+    width: 50px;
+    margin: 0;
+}
+.SeccionEmpresa section table tr td:nth-of-type(2) form input[type="number"]{
+    margin: 0;
+    border: none;
+}
+.SeccionEmpresa nav{
+    margin: 10px;
+    background-color: transparent;
+}
+.SeccionEmpresa nav ul li{
+    display: inline-block;
+    width: auto;
+    background-image: none; 
+    background-color: #b01e31;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.SeccionEmpresa nav ul li a{
+    font-size: 14px;
+    padding: 10px;
+}
+
+
+.SeccionProducto section:nth-of-type(1) article form,
+.SeccionProducto section:nth-of-type(1) article ul{
+    display: inline-block;
+    vertical-align: top;
+    list-style: none;
+}
+.SeccionProducto section:nth-of-type(1) article form{
+    width: 250px;
+    margin: 0 10px 0 0;
+}
+.SeccionProducto section:nth-of-type(1) article form img{
+    width: 100%;
+    border: 1px solid #c1c1c1;
+    border-radius: 10px;
+}
+.SeccionProducto section:nth-of-type(1) article form ul li{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px 0;
+}
+.SeccionProducto section:nth-of-type(1) article form ul li a{
+    display: block;
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+}
+.SeccionProducto section:nth-of-type(1) article form ul li:nth-of-type(2),
+.SeccionProducto section:nth-of-type(1) article form ul li:nth-of-type(4){
+    width: 40px;
+    height: 40px;
+    background-color: #b01e31;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.SeccionProducto section:nth-of-type(1) article form ul li:nth-of-type(2) a{
+    background-image: url("../img/Empresa.png");
+    background-position: center;
+    background-size: 70%;
+    background-repeat: no-repeat;
+}
+.SeccionProducto section:nth-of-type(1) article form ul li:nth-of-type(4) a{
+    background-image: url("../img/CarritoCompras.png");
+    background-position: center;
+    background-size: 80%;
+    background-repeat: no-repeat;
+}
+.SeccionProducto section:nth-of-type(1) article form ul li input[type="number"]{
+    width: 100px;
+    margin: 0;
+}
+
+
+.Comentarios ul{
+    list-style: none;
+}
+.Comentarios ul li article{
+    display: inline-block;
+    vertical-align: top;
+    margin: 5px 0;
+}
+.Comentarios ul li article:nth-of-type(1){
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.Comentarios ul li article:nth-of-type(1) img{
+    width: 100%;
+}
+.Comentarios ul li article:nth-of-type(2){
+    padding: 10px;
+}
+.Comentarios form ul:nth-of-type(2){
+    width: 116px;
+    direction: rtl;
+    margin: 0 auto 10px 0;
+}
+.Comentarios form ul:nth-of-type(2) label{
+    display: inline-block;
+    cursor: pointer;
+}
+.Comentarios form ul:nth-of-type(2) label:hover,
+.Comentarios form ul:nth-of-type(2) label:hover~label{
+    filter: grayscale(0);
+}
+.Comentarios form ul:nth-of-type(2) input[type="radio"]{
+    display: none;
+}
+.Comentarios form ul:nth-of-type(2) input[type="radio"]:checked~label{
+    filter: grayscale(0);
+}
+
+.Productos a{
+    text-decoration: none;
+}
+.Productos a article{
+    display: inline-block;
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+    transition: 0.25s ease;
+}
+.Productos a article:hover{
+    transform: rotate(3deg);
+}
+.Productos a article ul{
+    list-style: none;
+}
+.Productos a article ul li{
+    color: #000000;
+}
+.Productos a article ul li:nth-of-type(1){
+    color: #b01e31;
+    font-weight: bold;
+}
+.Productos a article ul li:nth-of-type(2){
+    height: 175px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 5px 0;
+}
+.Productos a article ul li:nth-of-type(2) img{
+    width: 100%;
+}
+.Productos a article ul li:nth-of-type(3){
+    font-weight: bold;
+}
+
+.Empresas a{
+    text-decoration: none;
+}
+.Empresas a article{
+    display: inline-block;
+    width: 200px; 
+    height: 200px;
+    margin: 10px;
+    background-color: #ffffff;
+    vertical-align: top;
+    overflow: hidden;
+    transition: 0.3s ease;
+    border: 1px solid #c1c1c1;
+    border-radius: 10px;
+}
+.Empresas a article ul{
+    list-style: none;
+}
+.Empresas a article ul li:nth-of-type(1){
+    height: 164px;
+}
+.Empresas a article ul li:nth-of-type(2){
+    position: relative;
+    padding: 10px;
+    color: #ffffff;
+    background-color: #2f2f2f;
+    font-weight: bold;
+}
+.Empresas a article ul li img{
+    width: 100%;
+    height: 100%;
+    opacity: 0.85;
+    transition: 0.3s ease;
+}
+.Empresas a article ul li img:hover{
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.Personas a{
+    text-decoration: none;
+}
+.Personas a article{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.Personas a article img{
+    width: 100%;
+}
+
+
+.SeccionAdministracion .Empresas span ul{
+    display: inline-block;
+    list-style: none;
+    position: relative;
+    z-index: 2;
+    margin: 0 0 0 -35px ;
+}
+.SeccionAdministracion .Empresas span ul li{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 7.5px;
+    background-color: #b01e31;
+    overflow: hidden;
+}
+.SeccionAdministracion .Empresas span ul li a{
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-image: url("../img/Eliminar.png");
+    background-position: center;
+    background-size: 80%;
+    background-repeat: no-repeat;
+}
+.SeccionAdministracion .Personas ul{
+    display: inline-block;
+    list-style: none;
+    position: relative;
+    z-index: 2;
+    margin: 0 0 0 -90px;
+}
+.SeccionAdministracion .Personas ul li{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    border-radius: 7.5px;
+    background-color: #b01e31;
+    overflow: hidden;
+}
+.SeccionAdministracion .Personas ul li a{
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+}
+.SeccionAdministracion .Personas ul li:nth-of-type(1) a{
+    background-image: url("../img/Administrador.png");
+}
+.SeccionAdministracion .Personas ul li:nth-of-type(2) a{
+    background-image: url("../img/Eliminar.png");
+}
+.SeccionAdministracion table tr td:nth-of-type(1) ul{
+    list-style: none;
+}
+.SeccionAdministracion table tr td:nth-of-type(1) ul li{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #b01e31;
+}
+.SeccionAdministracion table tr td:nth-of-type(1) ul li a{
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+    background-position: center;
+    background-size: 75%;
+    background-repeat: no-repeat;
+}
+.SeccionAdministracion table tr td:nth-of-type(1) ul li:nth-of-type(1) a{
+    background-image: url("../img/Eliminar.png");
+}
+
+
+footer{
+    background-color: #b01e31;
+    color: #ffffff;
+    padding: 10px;
+}
+footer ul{
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
+    list-style: none;
+}
+footer ul li:nth-of-type(1){
+    font-weight: bold;
+    font-size: 15.5px;
+    margin: 0 0 5px 0;
+}
+footer ul li a{
+    color: #ffffff;
+    text-decoration: none;
+}
+footer ul:nth-of-type(1) li:nth-of-type(1){
+    display: block;
+    height: 90px;
+    background-image: url("../img/Logo.png");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+footer ul:nth-of-type(1) li:nth-of-type(2){
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+}
+footer ul:nth-of-type(1) li:nth-of-type(3){
+    text-align: center;
+}
+footer ul:nth-of-type(1) li:nth-of-type(4){
+    margin: 20px 0 0 0;
+    font-weight: bold;
+}
+footer ul:nth-of-type(2) li:last-of-type{
+    margin: 10px 0 0 0;
+    font-style: italic;
+}
+
+
+@media screen and (max-device-width: 485px){
+    nav{
+        height: 54px;
+        overflow: hidden;
+    }
+    nav:hover{
+        height: auto;
+    }
+    nav ul li:nth-of-type(1){
+        display: block;
+    }
+    nav ul li{
+        display: block;
+        width: auto;
+    }
+    header{
+        padding: 50px 0;
+    }
+    header h1{
+        width: 160px;
+        font-size: 30px;
+        margin: auto;
+        padding: 5px;
+    }
+    section form{
+        width: 100%;
+    }
+    #SeccionLados, #SeccionesCentro{
+        display: block;
+        width: auto;
+    }
+    .SeccionSinFondo{
+        margin: 0;
+    }
+    .SeccionEmpresa header{
+        height: 125px;
+    } 
+    .SeccionEmpresa nav{
+        height: auto;
+    }
+    .SeccionEmpresa nav ul li{
+        display: inline-block;
+    } 
+    .SeccionProducto section:nth-of-type(1) article ul li img{
+        width: 99.5%;
+    } 
+    .SeccionAdministracion .Empresas a article{
+        width: 100px;
+        height: 100px;
+    }
+    .SeccionAdministracion .Empresas a article ul li:nth-of-type(1){
+        height: 74px;
+    }
+    .SeccionAdministracion .Empresas a article ul li:nth-of-type(2){
+        padding: 5px;
+    }
+    .Empresas a article, .Productos a article{
+        width: auto;
+    }
+    .Productos a article{
+        margin: 5px 0;
+    }
+    .Productos a article ul li:nth-of-type(2){
+        height: auto;
+    }
+    .Productos a article:hover{
+        transform: rotate(0deg);
+    }
+}
