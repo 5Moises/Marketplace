@@ -84,47 +84,48 @@
         <%
         } else {
         %>
-        <div id="SeccionesCentro" class="SeccionProducto"> 
-            <section>
-                <hgroup>
-                    <%= productoentidad.ObtenerNombre()%>
-                </hgroup>
-                <article>
-                    <form action="DetallePedidoServlet" name="frm_agregarcarrito" method="POST">
+        <div id="SeccionProductoCentro">
+            <div id="SeccionesCentro" class="SeccionProducto"> 
+                <section>
+                    <hgroup>
+                        <%= productoentidad.ObtenerNombre()%>
+                    </hgroup>
+                    <article>
+                        <img src="Vista/MostrarImagenProducto.jsp?CodProducto=<%= productoentidad.ObtenerCodProducto()%>"/>
+                        <form action="DetallePedidoServlet" name="frm_agregarcarrito" method="POST">
+                            <ul>
+                                <li><a href="Empresa.jsp?CodEmpresa=<%= productoentidad.ObtenerCodEmpresa()%>&Seccion=Prod" title="Ver catálogo"></a></li>
+                                    <%
+                                        if (session.getAttribute("AbrirSesion") != null) {
+                                    %>
+                                <li><input type="number" name="txt_cantidad" placeholder="Cantidad"/></li>
+                                <li><a href="javascript:;" onclick="frm_agregarcarrito.submit();" title="Agregar al Carrito"></a></li>
+                                    <%
+                                        } else {
+                                            out.write("<li><i>Para comprar un producto debe iniciar sesión.</i></li>");
+                                        }
+                                    %>
+                            </ul>
+                            <input type="hidden" name="Consulta" value="1"/>
+                            <input type="hidden" name="txt_codproducto" value="<%= productoentidad.ObtenerCodProducto()%>"/>
+                        </form>
+                    </article>
+                    <article>
                         <ul>
-                            <li><img src="Vista/MostrarImagenProducto.jsp?CodProducto=<%= productoentidad.ObtenerCodProducto()%>"/></li>
-                            <li><a href="Empresa.jsp?CodEmpresa=<%= productoentidad.ObtenerCodEmpresa()%>&Seccion=Prod" title="Ir a la Empresa"> </a></li>
-                                <%
-                                    if (session.getAttribute("AbrirSesion") != null) {
-                                %>
-                            <li><input type="number" name="txt_cantidad" placeholder="Cantidad"/></li>
-                            <li><a href="javascript:;" onclick="frm_agregarcarrito.submit();" title="Agregar al Carrito"> </a></li>
-                                <%
-                                    } else {
-                                        out.write("<li><i>Para comprar un producto debe iniciar sesión.</i></li>");
-                                    }
-                                %>
+                            <li><b>Descripción:</b> <%= productoentidad.ObtenerDescripcion()%></li>
+                            <li><b>Precio:</b> S/ <%= productoentidad.ObtenerPrecio()%></li>
+                            <li><b>Marca:</b> <%= productoentidad.ObtenerMarca()%></li>
+                            <li><b>Categoría:</b> <%= productoentidad.ObtenerCategoria()%></li>
+                            <li><b>Presentación:</b> <%= productoentidad.ObtenerPresentacion()%></li>
                         </ul>
-                        <input type="hidden" name="Consulta" value="1"/>
-                        <input type="hidden" name="txt_codproducto" value="<%= productoentidad.ObtenerCodProducto()%>"/>
-                    </form>
-
-                    <ul>
-                        <li><b>Descripción:</b> <%= productoentidad.ObtenerDescripcion()%></li>
-                        <li><b>Precio:</b> S/ <%= productoentidad.ObtenerPrecio()%></li>
-                        <li><b>Marca:</b> <%= productoentidad.ObtenerMarca()%></li>
-                        <li><b>Categoría:</b> <%= productoentidad.ObtenerCategoria()%></li>
-                        <li><b>Presentación:</b> <%= productoentidad.ObtenerPresentacion()%></li>
-                    </ul>
-                </article>
-            </section>
-            <%
-                if (request.getAttribute("CuadroMensaje") != null) {
-                    out.write(request.getAttribute("CuadroMensaje").toString());
-                }
-            %>
+                    </article>
+                </section>
+            </div>
         </div>
         <%
+            }
+            if (request.getAttribute("CuadroMensaje") != null) {
+                out.write(request.getAttribute("CuadroMensaje").toString());
             }
         %>
         <jsp:include page="Vista/Footer.jsp"/>

@@ -6,6 +6,7 @@
 <%
     int CodEmpresa = Integer.parseInt(request.getParameter("CodEmpresa"));
     String Seccion = request.getParameter("Seccion");
+    String PaginaSeccion = "";
     int AbrirSesion = 0;
 
     if (session.getAttribute("AbrirSesion") != null) {
@@ -35,7 +36,7 @@
         <%
             out.write("<style type=\"text/css\">");
             for (byte i = 0; i <= comentarioentidad.ObtenerPromedioCalificacion(); i++) {
-                out.write(".InformacionEmpresa ul:nth-of-type(2) li:nth-of-type(" + i + "){filter:grayscale(0)}");
+                out.write(".InformacionEmpresa article:nth-of-type(1) ul:nth-of-type(2) li:nth-of-type(" + i + "){filter:grayscale(0)}");
             }
             out.write("</style>");
         %>
@@ -57,7 +58,7 @@
                         <li>Nombre Empresa:</li>
                         <li><input type="text" name="txt_nombre" value="<%= empresaentidad.ObtenerNombre()%>"/></li>
                         <li>Teléfono:</li>
-                        <li><input type="text" name="txt_telefono" value="<%= empresaentidad.ObtenerTelefono()%>"/></li>
+                        <li><input type="number" name="txt_telefono" value="<%= empresaentidad.ObtenerTelefono()%>"/></li>
                         <li>E-mail:</li>
                         <li><input type="text" name="txt_email" value="<%= empresaentidad.ObtenerEmail()%>"/></li>
                         <li>Dirección:</li>
@@ -144,9 +145,6 @@
         %>
 
         <div id="SeccionesCentro" class="SeccionEmpresa">
-            <header>
-                <img src="Vista/MostrarImagenEmpresa.jsp?CodEmpresa=<%= empresaentidad.ObtenerCodEmpresa()%>"/>
-            </header>
             <%
                 if (empresaentidad.ObtenerCodPersona() != AbrirSesion) {
             %>
@@ -154,69 +152,64 @@
                 <hgroup>
                     <h2><%= empresaentidad.ObtenerNombre()%></h2>
                 </hgroup>
+                <article>
+                    <ul>
+                        <li><b>Teléfono:</b> <%= empresaentidad.ObtenerTelefono()%></li>
+                        <li><b>E-Mail:</b> <%= empresaentidad.ObtenerEmail()%></li>
+                        <li><b>Dirección:</b> <%= empresaentidad.ObtenerDireccion()%></li>
+                        <li><b>Descripción:</b> <%= empresaentidad.ObtenerDescripcion()%></li>
+                        <li><b>Distrito:</b> <%= empresaentidad.ObtenerDistrito()%></li>
+                    </ul>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul>
+                        <li><a href="Empresa.jsp?CodEmpresa=<%= empresaentidad.ObtenerCodEmpresa()%>&Seccion=Coment" title="Comentar y Calificar"></a></li>
+                        <li><a href="Empresa.jsp?CodEmpresa=<%= empresaentidad.ObtenerCodEmpresa()%>&Seccion=Prod" title="Catálogo"></a></li>
+                        <li><a href="Empresa.jsp?CodEmpresa=<%= empresaentidad.ObtenerCodEmpresa()%>&Seccion=Carrito" title="Carrito de Compras"></a></li>
+                    </ul>
+                </article>
+                <article>
+                    <img src="Vista/MostrarImagenEmpresa.jsp?CodEmpresa=<%= empresaentidad.ObtenerCodEmpresa()%>"/>
+                </article>
+            </section>
+            <%
+                }
+                if (empresaentidad.ObtenerCodPersona() == AbrirSesion) {
+            %>
+            <section class="SeccionSinFondo MenuVendedor">
                 <ul>
-                    <li><b>Teléfono:</b> <%= empresaentidad.ObtenerTelefono()%></li>
-                    <li><b>E-Mail:</b> <%= empresaentidad.ObtenerEmail()%></li>
-                    <li><b>Dirección:</b> <%= empresaentidad.ObtenerDireccion()%></li>
-                    <li><b>Descripción:</b> <%= empresaentidad.ObtenerDescripcion()%></li>
-                    <li><b>Distrito:</b> <%= empresaentidad.ObtenerDistrito()%></li>
-                </ul>
-                <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li><a href="Empresa.jsp?CodEmpresa=<%= empresaentidad.ObtenerCodEmpresa()%>&Seccion=Prod" title="Catálogo"></a></li>
+                    <li><a href="Empresa.jsp?CodEmpresa=<%= empresaentidad.ObtenerCodEmpresa()%>&Seccion=Pedidos" title="Pedidos a la Empresa"></a></li>
+                    <li><a href="Empresa.jsp?CodEmpresa=<%= empresaentidad.ObtenerCodEmpresa()%>&Seccion=Reporte" title="Reporte">Reporte</a></li>
+                    <li><a href="Empresa.jsp?CodEmpresa=<%= empresaentidad.ObtenerCodEmpresa()%>&Seccion=ReporteP" title="Reportes de Productos">Reporte Prodcuto</a></li>
                 </ul>
             </section>
             <%
                 }
-            %>
-            <nav>
-                <ul>
-                    <li><a href="Empresa.jsp?CodEmpresa=<%= empresaentidad.ObtenerCodEmpresa()%>&Seccion=Prod">Todos Productos</a></li>
-                        <%
-                            if (empresaentidad.ObtenerCodPersona() != AbrirSesion && session.getAttribute("AbrirSesion") != null) {
-                        %>                
-                    <li><a href="Empresa.jsp?CodEmpresa=<%= empresaentidad.ObtenerCodEmpresa()%>&Seccion=Carrito">Carrito de Compras</a></li>
-                        <%
-                            }
-                        %>
-                    <li><a href="Empresa.jsp?CodEmpresa=<%= empresaentidad.ObtenerCodEmpresa()%>&Seccion=Coment">Comentarios</a></li>
-                        <%
-                            if (empresaentidad.ObtenerCodPersona() == AbrirSesion) {
-                        %>
-                    <li><a href="Empresa.jsp?CodEmpresa=<%= empresaentidad.ObtenerCodEmpresa()%>&Seccion=Pedidos">Pedidos a la Empresa</a></li>
-                        <%
-                            }
-                        %>
-                </ul>
-            </nav>
-            <%
+
                 switch (Seccion) {
                     case "Prod":
-            %>
-            <jsp:include page="Vista/MostrarProductos.jsp"/>
-            <%
-                    break;
-                case "Carrito":
-                    if (empresaentidad.ObtenerCodPersona() != AbrirSesion && session.getAttribute("AbrirSesion") != null) {
-            %>
-            <jsp:include page="Vista/MostrarCarritoCompras.jsp"/>
-            <%
-                    }
-                    break;
-                case "Coment":
-            %>
-            <jsp:include page="Vista/MostrarComentarios.jsp"/>
-            <%
-                    break;
-                case "Pedidos":
-                    if (empresaentidad.ObtenerCodPersona() == AbrirSesion) {
-            %>
-            <jsp:include page="Vista/MostrarPedidosEmpresa.jsp"/>
-            <%
-                        }
+                        PaginaSeccion = "Vista/MostrarProductos.jsp";
+                        break;
+                    case "Carrito":
+                        PaginaSeccion = "Vista/MostrarCarritoCompras.jsp";
+                        break;
+                    case "Coment":
+                        PaginaSeccion = "Vista/MostrarComentarios.jsp";
+                        break;
+                    case "Pedidos":
+                        PaginaSeccion = "Vista/MostrarPedidosEmpresa.jsp";
+                        break;
+                    case "Reporte":
+                        PaginaSeccion = "Vista/Reporte.jsp";
+                        break;
+                    case "ReporteP":
+                        PaginaSeccion = "Vista/ReporteProductos.jsp";
                         break;
                 }
 
@@ -224,6 +217,7 @@
                     out.write(request.getAttribute("CuadroMensaje").toString());
                 }
             %>
+            <jsp:include page="<%= PaginaSeccion%>"/>
         </div>
         <jsp:include page="Vista/Footer.jsp"/>
     </body>

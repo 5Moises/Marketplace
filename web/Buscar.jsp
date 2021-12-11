@@ -7,10 +7,23 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     String NombreDistrito = request.getParameter("NombreDistrito");
-    String BusqProducto = request.getParameter("BusqProducto");
-    byte Consulta = 0;
-    if (request.getParameter("Consulta") != null) {
-        Consulta = Byte.parseByte(request.getParameter("Consulta"));
+    String NombreProducto = "", Marca = "", Categoria = "", Presentacion = "";
+
+    if (request.getParameter("NombreProducto") != null) {
+        if (!request.getParameter("NombreProducto").equals("")) {
+            NombreProducto = request.getParameter("NombreProducto");
+        } else {
+            NombreProducto = "...";
+        }
+    }
+    if (request.getParameter("Marca") != null) {
+        Marca = request.getParameter("Marca");
+    }
+    if (request.getParameter("Categoria") != null) {
+        Categoria = request.getParameter("Categoria");
+    }
+    if (request.getParameter("Presentacion") != null) {
+        Presentacion = request.getParameter("Presentacion");
     }
 %>
 <!DOCTYPE html>
@@ -54,13 +67,12 @@
 
                 <div class="Productos">  
                     <%
-                        if (!BusqProducto.trim().equals("")) {
-                            Producto producto = new Producto();
-                            List<ProductoEntidad> DatosProducto = producto.BuscarProductos(BusqProducto, Consulta);
-                            Iterator<ProductoEntidad> productoiterator = DatosProducto.iterator();
-                            ProductoEntidad datoproducto = null;
-                            while (productoiterator.hasNext()) {
-                                datoproducto = productoiterator.next();
+                        Producto producto = new Producto();
+                        List<ProductoEntidad> DatosProducto = producto.BuscarProductos(NombreProducto, Presentacion, Marca, Categoria);
+                        Iterator<ProductoEntidad> productoiterator = DatosProducto.iterator();
+                        ProductoEntidad datoproducto = null;
+                        while (productoiterator.hasNext()) {
+                            datoproducto = productoiterator.next();
                     %>
                     <a href="Producto.jsp?CodProducto=<%= datoproducto.ObtenerCodProducto()%>">
                         <Article>
@@ -72,7 +84,6 @@
                         </Article>
                     </a>
                     <%
-                            }
                         }
                     %>
                 </div>

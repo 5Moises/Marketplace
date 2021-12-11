@@ -1,6 +1,6 @@
 
 <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1">
-<link rel="stylesheet" type="text/css" href="css/main17.css">
+<link rel="stylesheet" type="text/css" href="css/main6.css">
 <link rel="shorcut icon" href="img/favicon.ico"/>
 
 <link rel="stylesheet" type="text/css" href="css/EstiloModal.css">

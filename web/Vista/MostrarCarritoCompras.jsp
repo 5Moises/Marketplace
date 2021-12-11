@@ -13,21 +13,19 @@
     Persona persona = new Persona();
     PersonaEntidad personaentidad = (PersonaEntidad) persona.MostrarPersona(AbrirSesion);
 %>
-<section>
+<section class="CarritoCompras">
     <hgroup>
         Carrito de Compras
     </hgroup>
     <%
-        if (request.getAttribute("CuadroMensaje") != null) {
-            out.write(request.getAttribute("CuadroMensaje").toString());
-        }
+        if (session.getAttribute("AbrirSesion") != null) {
     %>
-    <div class="BarraDesplHorizontal">
+    <article>
         <table>
             <tr>
                 <th>Acción</th>
-                <th>Cantidad</th>
                 <th>Nombre</th>
+                <th>Cantidad</th>
                 <th>Precio</th>
                 <th>Subtotal</th>
             </tr>
@@ -48,6 +46,7 @@
                         <li><a href="javascript:;" onclick="frm_modificarcantidad<%= Numero%>.submit();" title="Modificar Cantidad"> </a></li>
                     </ul>   
                 </td>
+                <td><%= datodetallepedido.ObtenerNombreProducto()%></td>
                 <td>
                     <form action="DetallePedidoServlet" method="GET" id="frm_modificarcantidad<%= Numero%>">
                         <input type="number" name="txt_cantidad" value="<%= datodetallepedido.ObtenerCantidad()%>"/>
@@ -56,7 +55,6 @@
                         <input type="hidden" name="Consulta" value="2"/>
                     </form>
                 </td>
-                <td><%= datodetallepedido.ObtenerNombreProducto()%></td>
                 <td><%= datodetallepedido.ObtenerPrecio()%></td>
                 <td><%= datodetallepedido.ObtenerSubtotal()%></td>
             </tr>
@@ -70,20 +68,34 @@
                 <td></td>
                 <td>Total S/</td>
                 <td><%= detallepedidoentidad.ObtenerTotal()%></td>
-            </tr>
+            </tr>            
         </table>
-    </div>
-    <form action="PedidoServlet" method="POST">
-        <ul>
-            <li><input type="text" name="txt_direccion" value="<%= personaentidad.ObtenerDireccion()%>"/></li>
-            <li><input type="datetime-local" name="dtp_fechahora"/></li> 
-            <li><select name="cbo_tipopago">
-                    <option value="Seleccionar" selected="selected">Tipo de pago</option>
-                    <jsp:include page="MostrarTiposPago.jsp"/>
-                </select></li>
-            <li><input type="submit" name="btn_registrar" value="Registrar Pedido"/></li>
-        </ul>
-        <input type="hidden" name="Consulta" value="1"/>
-        <input type="hidden" name="txt_codempresa" value="<%= CodEmpresa%>"/>
-    </form>
+    </article>
+    <article>
+        <form action="PedidoServlet" method="POST">
+            <ul>
+                <li>Dirección:</li>
+                <li><input type="text" name="txt_direccion" value="<%= personaentidad.ObtenerDireccion()%>"/></li>
+                <li>Fecha y hora de entrega sugerida:</li>
+                <li><input type="datetime-local" name="dtp_fechahora"/></li>
+                <li>Tipo de pago:</li>
+                <li><select name="cbo_tipopago">
+                        <option value="Seleccionar" selected="selected">Tipo de pago</option>
+                        <jsp:include page="MostrarTiposPago.jsp"/>
+                    </select></li>
+                <li><input type="submit" name="btn_registrar" value="Registrar Pedido"/></li>
+            </ul>
+            <input type="hidden" name="Consulta" value="1"/>
+            <input type="hidden" name="txt_codempresa" value="<%= CodEmpresa%>"/>
+        </form>
+        <%
+            } else {
+                out.write("<i>Para ver su Carrito de compras debe iniciar sesión.</i>");
+            }
+
+            if (request.getAttribute("CuadroMensaje") != null) {
+                out.write(request.getAttribute("CuadroMensaje").toString());
+            }
+        %>
+    </article>
 </section>

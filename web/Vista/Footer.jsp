@@ -55,7 +55,7 @@
                 datocategoria = categoriasiterator.next();
         %>
         <li>
-            <a href="Buscar.jsp?BusqProducto=<%= datocategoria.ObtenerCodCategoria()%>&Consulta=2">&#8226; <%= datocategoria.ObtenerNombre()%></a>
+            <a href="Buscar.jsp?Categoria=<%= datocategoria.ObtenerCodCategoria()%>">&#8226; <%= datocategoria.ObtenerNombre()%></a>
         </li>
         <%
             }
@@ -72,7 +72,7 @@
                 datomarca = marcaiterator.next();
         %>
         <li>
-            <a href="Buscar.jsp?BusqProducto=<%= datomarca.ObtenerCodMarca()%>&Consulta=3">&#8226; <%= datomarca.ObtenerNombre()%></a>
+            <a href="Buscar.jsp?Marca=<%= datomarca.ObtenerCodMarca()%>">&#8226; <%= datomarca.ObtenerNombre()%></a>
         </li>
         <%
             }

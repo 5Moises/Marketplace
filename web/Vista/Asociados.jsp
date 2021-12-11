@@ -44,7 +44,7 @@
                 <li>E-Mail:</li>
                 <li><input type="email" name="txt_email" value="<%= personaentidad.ObtenerEmail()%>"></li>
                 <li>Teléfono:</li>
-                <li><input type="text" name="txt_telefono" value="<%= personaentidad.ObtenerTelefono()%>"></li>
+                <li><input type="number" name="txt_telefono" value="<%= personaentidad.ObtenerTelefono()%>"></li>
                 <li>Direccion:</li>
                 <li><input type="text" name="txt_direccion" value="<%= personaentidad.ObtenerDireccion()%>"></li>
                 <li><input type="submit" name="btn_modificar" value="Modificar"></li>
@@ -179,42 +179,44 @@
             <summary>
                 <%= datopedido.ObtenerCodPedido() + " &#8226; " + datopedido.ObtenerNombreEmpresa()%>
             </summary>
-            <ul>
-                <li>Dirección entrega: <%= datopedido.ObtenerDireccionEntrega()%></li>
-                <li>Hora sugerida: <%= datopedido.ObtenerHoraEntrega()%></li>
-                <li>Fecha emisión: <%= datopedido.ObtenerFechaEmision()%></li>
-                <li>Tipo de Pago: <%= datopedido.ObtenerTipoPago()%></li>
-            </ul>
-            <div class="BarraDesplHorizontal">
-                <table>
-                    <tr>
-                        <th>Cantidad</th>
-                        <th>Producto</th>
-                        <th>Precio</th>
-                        <th>Subtotal</th>
-                    </tr>
-                    <%
-                        while (detallepedidoiterator.hasNext()) {
-                            datodetallepedido = detallepedidoiterator.next();
-                    %>
-                    <tr>
-                        <td><%= datodetallepedido.ObtenerCantidad()%></td>
-                        <td><%= datodetallepedido.ObtenerNombreProducto()%></td>
-                        <td><%= datodetallepedido.ObtenerPrecio()%></td>
-                        <td><%= datodetallepedido.ObtenerSubtotal()%></td>
-                    </tr>
-                    <%
-                        }
-                        DetallePedidoEntidad detallepedidoentidad = (DetallePedidoEntidad) detallepedido.TotalDetallePedidoPerfil(datopedido.ObtenerCodPedido());
-                    %>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td>Total S/</td>
-                        <td><%= detallepedidoentidad.ObtenerTotal()%></td>
-                    </tr>
-                </table>
-            </div>
+            <article class="CarritoCompras">
+                <ul>
+                    <li>Dirección entrega: <%= datopedido.ObtenerDireccionEntrega()%></li>
+                    <li>Hora sugerida: <%= datopedido.ObtenerHoraEntrega()%></li>
+                    <li>Fecha emisión: <%= datopedido.ObtenerFechaEmision()%></li>
+                    <li>Tipo de Pago: <%= datopedido.ObtenerTipoPago()%></li>
+                </ul>
+                <div class="BarraDesplHorizontal">
+                    <table>
+                        <tr>
+                            <th>Cantidad</th>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Subtotal</th>
+                        </tr>
+                        <%
+                            while (detallepedidoiterator.hasNext()) {
+                                datodetallepedido = detallepedidoiterator.next();
+                        %>
+                        <tr>
+                            <td><%= datodetallepedido.ObtenerCantidad()%></td>
+                            <td><%= datodetallepedido.ObtenerNombreProducto()%></td>
+                            <td><%= datodetallepedido.ObtenerPrecio()%></td>
+                            <td><%= datodetallepedido.ObtenerSubtotal()%></td>
+                        </tr>
+                        <%
+                            }
+                            DetallePedidoEntidad detallepedidoentidad = (DetallePedidoEntidad) detallepedido.TotalDetallePedidoPerfil(datopedido.ObtenerCodPedido());
+                        %>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>Total S/</td>
+                            <td><%= detallepedidoentidad.ObtenerTotal()%></td>
+                        </tr>
+                    </table>
+                </div>
+            </article>
         </details>
         <%
             }

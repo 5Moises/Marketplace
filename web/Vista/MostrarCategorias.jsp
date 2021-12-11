@@ -10,7 +10,7 @@
     while (categoriaiterator.hasNext()) {
         datocategoria = categoriaiterator.next();
 %>
-<option value="<%= datocategoria.ObtenerNombre()%>"><%= datocategoria.ObtenerNombre()%></option>
+<option value="<%= datocategoria.ObtenerCodCategoria()%>"><%= datocategoria.ObtenerNombre()%></option>
 <%
     }
 %>

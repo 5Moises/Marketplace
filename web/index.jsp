@@ -46,15 +46,14 @@
                 <ul>
                     <%
                         if (NombreDistrito != null) {
-                            if (empresaentidad.ObtenerCantidadEmpresas() > 0 ) {
+                            if (empresaentidad.ObtenerCantidadEmpresas() > 0) {
                                 out.write("<li>"
                                         + "<b>"
                                         + "Tiendas en el distrito de " + empresaentidad.ObtenerDistrito() + ":"
                                         + "</b>"
                                         + "</li>"
                                         + "<li></li>"
-                                        + "<li id=\"MapaDistrito\">"
-                                        + "</li>");
+                                        + "<li id=\"MapaDistrito\"></li>");
                             } else {
                                 out.write("<li><b>Aún no contamos con empresas en " + empresaentidad.ObtenerDistrito() + "</b></li>");
                             }
@@ -78,19 +77,10 @@
             </hgroup>
             <form action="Buscar.jsp" method="GET" >
                 <ul>
-                    <li><input type="text" name="BusqProducto" placeholder="Buscar por Nombre"/></li>
+                    <li><input type="text" name="NombreProducto" placeholder="Buscar por Nombre"/></li>
                     <li><input type="submit" value="Buscar"/></li>
                 </ul>
-                <input type="hidden" name="Consulta" value="1"/>
             </form>
-        </section>
-        <section>
-            <hgroup>
-                Anuncios
-            </hgroup>
-            <article>
-
-            </article>
         </section>
         <jsp:include page="Vista/Footer.jsp"/>
     </body>

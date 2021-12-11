@@ -10,7 +10,7 @@
     while (marcaiterator.hasNext()) {
         datomarca = marcaiterator.next();
 %>
-<option value="<%= datomarca.ObtenerNombre()%>"><%= datomarca.ObtenerNombre()%></option>
+<option value="<%= datomarca.ObtenerCodMarca()%>"><%= datomarca.ObtenerNombre()%></option>
 <%
     }
 %>

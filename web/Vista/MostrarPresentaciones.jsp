@@ -10,7 +10,7 @@
     while (presentacioniterator.hasNext()) {
         datopresentacion = presentacioniterator.next();
 %>
-<option value="<%= datopresentacion.ObtenerNombre()%>"><%= datopresentacion.ObtenerNombre()%></option>
+<option value="<%= datopresentacion.ObtenerCodPresentacion() %>"><%= datopresentacion.ObtenerNombre()%></option>
 <%
     }
 %>
