@@ -1,9 +1,9 @@
-
 package Entidad;
 
 public class TipoPagoEntidad {
-    int CodTipoPago;
-    String Nombre;
+
+    private int CodTipoPago;
+    private String Nombre;
 
     public int ObtenerCodTipoPago() {
         return CodTipoPago;

@@ -15,8 +15,8 @@ public class Empresa {
     Connection conexion = Conexion.getConnection();
     EmpresaEntidad empresaentidad = new EmpresaEntidad();
 
-    int ResultadoConsulta;
-    boolean ExitoConsulta = false;
+    private int ResultadoConsulta;
+    private boolean ExitoConsulta = false;
     ResultSet rs;
 
     public List MostrarEmpresas(int CodPersona) {

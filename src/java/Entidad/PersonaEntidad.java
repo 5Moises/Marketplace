@@ -6,11 +6,11 @@ import javax.servlet.http.Part;
 
 public class PersonaEntidad {
 
-    int CodPersona, SesionCodPersona, CantidadPersonas;
-    byte Tipo;
-    String IdAcceso, Contrasena, Nombres, Apellidos, Email, Telefono, Direccion;
-    Part Imagen;
-    InputStream ConvertImagen;
+    private int CodPersona, SesionCodPersona, CantidadPersonas;
+    private byte Tipo;
+    private String IdAcceso, Contrasena, Nombres, Apellidos, Email, Telefono, Direccion;
+    private Part Imagen;
+    private InputStream ConvertImagen;
 
     public int ObtenerSesionCodPersona() {
         return SesionCodPersona;

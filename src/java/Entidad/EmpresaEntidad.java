@@ -6,10 +6,10 @@ import javax.servlet.http.Part;
 
 public class EmpresaEntidad {
 
-    int CodEmpresa, CodPersona, Calificacion, CantidadEmpresas;
-    String Nombre, Telefono, Distrito, Email, Direccion, Descripcion, Latitud, Longitud;
-    Part Imagen;
-    InputStream ConvertImagen;
+    private int CodEmpresa, CodPersona, Calificacion, CantidadEmpresas;
+    private String Nombre, Telefono, Distrito, Email, Direccion, Descripcion, Latitud, Longitud;
+    private Part Imagen;
+    private InputStream ConvertImagen;
 
     public int ObtenerCodEmpresa() {
         return CodEmpresa;

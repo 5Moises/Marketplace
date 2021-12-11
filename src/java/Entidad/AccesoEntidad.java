@@ -2,7 +2,7 @@ package Entidad;
 
 public class AccesoEntidad {
 
-    String IdAcceso, Contrasena;
+    private String IdAcceso, Contrasena;
 
     public String ObtenerIdAcceso() {
         return IdAcceso;
@@ -11,7 +11,7 @@ public class AccesoEntidad {
     public void ColocarIdAcceso(String IdAcceso) {
         this.IdAcceso = IdAcceso;
     }
-    
+
     public String ObtenerContrasena() {
         return Contrasena;
     }

@@ -16,8 +16,8 @@ public class Pedido {
     PedidoEntidad pedidoentidad = new PedidoEntidad();
     Random random = new Random();
 
-    int ResultadoConsulta;
-    boolean ExitoConsulta;
+    private int ResultadoConsulta;
+    private boolean ExitoConsulta;
     ResultSet rs;
 
     public List MostrarPedidos(int CodCliente) {
@@ -40,7 +40,7 @@ public class Pedido {
         }
         return DatosPedidos;
     }
-    
+
     public List MostrarPedidosEmpresa(int CodEmpresa) {
         ArrayList<PedidoEntidad> DatosPedidos = new ArrayList<>();
         try {

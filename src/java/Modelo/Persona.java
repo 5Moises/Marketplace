@@ -15,9 +15,9 @@ public class Persona {
     Connection conexion = Conexion.getConnection();
     PersonaEntidad personaentidad = new PersonaEntidad();
 
-    byte TipoUsuario;
-    int ResultadoConsulta;
-    boolean ExitoConsulta = false;
+    private byte TipoUsuario;
+    private int ResultadoConsulta;
+    private boolean ExitoConsulta = false;
     ResultSet rs;
 
     public List MostrarPersonas(byte TipoPersona) {
@@ -89,7 +89,7 @@ public class Persona {
                 ps3.setString(1, DatosPersona.ObtenerIdAcceso());
                 ps3.setString(2, DatosPersona.ObtenerContrasena());
                 ps3.executeUpdate();
-                
+
                 PreparedStatement ps4 = conexion.prepareStatement("INSERT INTO Persona(Nombres, Apellidos, Email, Telefono, Direccion, Tipo, Imagen, IdAcceso) VALUES (?,?,?,000,'',?,?,?)");
                 ps4.setString(1, DatosPersona.ObtenerNombres());
                 ps4.setString(2, DatosPersona.ObtenerApellidos());

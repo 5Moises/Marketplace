@@ -2,9 +2,9 @@ package Entidad;
 
 public class DetallePedidoEntidad {
 
-    int CodCliente, CodEmpresa, CodProducto;
-    String CodDetalle, CodPedido, NombreProducto, Cantidad, Precio, SubTotal;
-    double Total = 0.0;
+    private int CodCliente, CodEmpresa, CodProducto;
+    private String CodDetalle, CodPedido, NombreProducto, Cantidad, Precio, SubTotal;
+    private double Total = 0.0;
 
     public int ObtenerCodCliente() {
         return CodCliente;

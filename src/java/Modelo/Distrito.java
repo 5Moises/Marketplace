@@ -14,8 +14,8 @@ public class Distrito {
     Connection conexion = Conexion.getConnection();
     DistritoEntidad distritoentidad = new DistritoEntidad();
 
-    int ResultadoConsulta;
-    boolean ExitoConsulta;
+    private int ResultadoConsulta;
+    private boolean ExitoConsulta;
     ResultSet rs;
 
     public List MostrarDistritos() {

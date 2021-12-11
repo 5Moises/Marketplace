@@ -2,8 +2,8 @@ package Entidad;
 
 public class PedidoEntidad {
 
-    String CodPedido, DireccionEntrega, FechaEmision, HoraEntrega, TipoPago, NombreEmpresa, NombresCliente;
-    int CodCliente, CodEmpresa;
+    private String CodPedido, DireccionEntrega, FechaEmision, HoraEntrega, TipoPago, NombreEmpresa, NombresCliente;
+    private int CodCliente, CodEmpresa;
 
     public String ObtenerCodPedido() {
         return CodPedido;

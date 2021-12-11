@@ -1,4 +1,3 @@
-
 package Modelo;
 
 import Configuracion.Conexion;
@@ -11,12 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Marca {
-    
+
     Connection conexion = Conexion.getConnection();
     MarcaEntidad marcaentidad = new MarcaEntidad();
 
-    int ResultadoConsulta;
-    boolean ExitoConsulta;
+    private int ResultadoConsulta;
+    private boolean ExitoConsulta;
     ResultSet rs;
 
     public List MostrarMarcas() {

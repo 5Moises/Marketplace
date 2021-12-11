@@ -1,9 +1,9 @@
-
 package Entidad;
 
 public class PresentacionEntidad {
-    int CodPresentacion;
-    String Nombre;
+
+    private int CodPresentacion;
+    private String Nombre;
 
     public int ObtenerCodPresentacion() {
         return CodPresentacion;

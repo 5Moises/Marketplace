@@ -1,9 +1,9 @@
-
 package Entidad;
 
 public class MarcaEntidad {
-    int CodMarca;
-    String Nombre;
+
+    private int CodMarca;
+    private String Nombre;
 
     public int ObtenerCodMarca() {
         return CodMarca;

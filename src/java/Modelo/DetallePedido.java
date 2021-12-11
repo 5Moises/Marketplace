@@ -16,8 +16,8 @@ public class DetallePedido {
     DetallePedidoEntidad detallepedidoentidad = new DetallePedidoEntidad();
     Random random = new Random();
 
-    int ResultadoConsulta;
-    boolean ExitoConsulta = false;
+    private int ResultadoConsulta;
+    private boolean ExitoConsulta = false;
     ResultSet rs;
 
     public List MostrarDetallePedidos(int CodEmpresa, int CodCliente) {

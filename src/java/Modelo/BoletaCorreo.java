@@ -13,7 +13,7 @@ public class BoletaCorreo {
     BoletaCorreoEntidad boletacorreoentidad = new BoletaCorreoEntidad();
 
     ResultSet rs;
-    String CuerpoCorreo, NombreEmpresa;
+    private String CuerpoCorreo, NombreEmpresa, EnlaceEmpresa;
     String EstiloTabla = "style=\"border: 1px solid #000; padding: 5px;\" ";
     String EstiloArticulo = "style=\"display:block; padding:10px; margin:10px; border:1px solid #c1c1c1; border-radius:10px; background:#e7f0fe;\" ";
 
@@ -22,6 +22,7 @@ public class BoletaCorreo {
         ps.setString(1, DatosBoletaCorreo.ObtenerCodPedido());
         rs = ps.executeQuery();
         if (rs.next()) {
+            EnlaceEmpresa = "http://localhost:8084/Marketplace/Empresa.jsp?CodEmpresa=" + DatosBoletaCorreo.ObtenerCodEmpresa() + "&Seccion=Prod";
             CuerpoCorreo = ""
                     + "Estimado Cliente, le presentamos los detalles de su pedido, su comprobante de pago:"
                     + "<article " + EstiloArticulo + ">"
@@ -67,7 +68,7 @@ public class BoletaCorreo {
                     + "</tr>"
                     + "</table>"
                     + "</article>"
-                    + "Gracias por su compra...";
+                    + "Gracias por su compra, puedes ingresar a <a href=\"" + EnlaceEmpresa + "\">nuestra tienda</a> y ver nuestro catálogo";
         }
         return CuerpoCorreo;
     }

@@ -14,8 +14,8 @@ public class Comentario {
     Connection conexion = Conexion.getConnection();
     ComentarioEntidad comentarioentidad = new ComentarioEntidad();
 
-    int ResultadoConsulta;
-    boolean ExitoConsulta = false;
+    private int ResultadoConsulta;
+    private boolean ExitoConsulta = false;
     ResultSet rs;
 
     public List MostrarComentarios(int CodEmpresa) {

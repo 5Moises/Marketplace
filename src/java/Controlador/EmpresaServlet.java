@@ -73,7 +73,6 @@ public class EmpresaServlet extends HttpServlet {
                         cuadrodialogo.CuadroMensaje(request, response, "Perfil.jsp?CodPersona=" + AbrirSesion, "Complete los espacios vacíos", "Aviso");
                     }
                     break;
-
                 case 2:
                     if (!Nombre.equals("") && !Telefono.equals("") && !Email.equals("") && !Direccion.equals("") && !Descripcion.equals("")) {
                         if (empresa.ModificarEmpresa(empresaentidad) == true) {

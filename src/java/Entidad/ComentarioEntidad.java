@@ -2,9 +2,9 @@ package Entidad;
 
 public class ComentarioEntidad {
 
-    int CodComentario, CodCliente, CodEmpresa;
-    byte Calificacion, PromedioCalificacion;
-    String Comentario, FechaEmision, NombreApellidoCliente;
+    private int CodCliente, CodEmpresa;
+    private byte Calificacion, PromedioCalificacion;
+    private String Comentario, FechaEmision, NombreApellidoCliente;
 
     public int ObtenerCodCliente() {
         return CodCliente;

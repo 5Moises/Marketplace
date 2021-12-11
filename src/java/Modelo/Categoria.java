@@ -1,4 +1,3 @@
-
 package Modelo;
 
 import Configuracion.Conexion;
@@ -10,14 +9,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Categoria {
-    
+
     Connection conexion = Conexion.getConnection();
     CategoriaEntidad categoriaentidad = new CategoriaEntidad();
 
-    int ResultadoConsulta;
-    boolean ExitoConsulta;
+    private int ResultadoConsulta;
+    private boolean ExitoConsulta;
     ResultSet rs;
 
     public List MostrarCategorias() {

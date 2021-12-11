@@ -6,11 +6,11 @@ import javax.servlet.http.Part;
 
 public class ProductoEntidad {
 
-    int CodProducto, CodEmpresa, CodPersona;
-    String Nombre, Precio, Descripcion, Presentacion, Marca, Categoria;
-    boolean Disponible;
-    Part Imagen;
-    InputStream ConverImagen;
+    private int CodProducto, CodEmpresa, CodPersona;
+    private String Nombre, Precio, Descripcion, Presentacion, Marca, Categoria;
+    private boolean Disponible;
+    private Part Imagen;
+    private InputStream ConverImagen;
 
     public void ColocarCodProducto(int CodProducto) {
         this.CodProducto = CodProducto;

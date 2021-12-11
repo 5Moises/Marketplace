@@ -1,9 +1,9 @@
-
 package Entidad;
 
 public class CategoriaEntidad {
-    int CodCategoria;
-    String Nombre;
+
+    private int CodCategoria;
+    private String Nombre;
 
     public int ObtenerCodCategoria() {
         return CodCategoria;

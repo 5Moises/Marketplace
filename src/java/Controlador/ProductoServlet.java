@@ -64,7 +64,7 @@ public class ProductoServlet extends HttpServlet {
             switch (Cosulta) {
                 case 1:
                     if (!Nombre.equals("") && !Precio.equals("") && !Descripcion.equals("")) {
-                        if (!Presentacion.equals("Seleccionar") || !Marca.equals("Seleccionar") || !Categoria.equals("Seleccionar")) {
+                        if (!Presentacion.equals("Seleccionar") && !Marca.equals("Seleccionar") && !Categoria.equals("Seleccionar")) {
                             if (producto.RegistrarProducto(productoentidad) == true) {
                                 response.sendRedirect("Empresa.jsp?CodEmpresa=" + CodEmpresa + "&Seccion=Prod");
                             }

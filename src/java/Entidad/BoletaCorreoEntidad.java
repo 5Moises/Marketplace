@@ -2,7 +2,7 @@ package Entidad;
 
 public class BoletaCorreoEntidad {
 
-    String CodPedido, CodEmpresa, FechaConfirmada, NombreRepartidor;
+    private String CodPedido, CodEmpresa, FechaConfirmada, NombreRepartidor;
 
     public String ObtenerCodPedido() {
         return CodPedido;

@@ -1,4 +1,3 @@
-
 package Modelo;
 
 import Configuracion.Conexion;
@@ -11,14 +10,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class TipoPago {
-    
+
     Connection conexion = Conexion.getConnection();
     TipoPagoEntidad tipopagoentidad = new TipoPagoEntidad();
 
-    int ResultadoConsulta;
-    boolean ExitoConsulta;
+    private int ResultadoConsulta;
+    private boolean ExitoConsulta;
     ResultSet rs;
 
     public List MostrarTiposPago() {

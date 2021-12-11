@@ -15,16 +15,17 @@ public class Producto {
     Connection conexion = Conexion.getConnection();
     ProductoEntidad productoentidad = new ProductoEntidad();
 
-    int ResultadoConsulta;
-    boolean ExitoConsulta = false;
+    private int ResultadoConsulta;
+    private boolean ExitoConsulta = false;
     ResultSet rs;
 
-    public List MostrarProductos(int CodEmpresa, String Nombre) {
+    public List MostrarProductos(int CodEmpresa, String Nombre, String Categoria) {
         ArrayList<ProductoEntidad> DatosProducto = new ArrayList<>();
         try {
-            PreparedStatement ps = conexion.prepareStatement("SELECT CodProducto, Nombre, Precio FROM Producto WHERE CodEmpresa = ? AND Nombre LIKE ? ");
+            PreparedStatement ps = conexion.prepareStatement("SELECT CodProducto, Nombre, Precio FROM Producto WHERE CodEmpresa = ? AND Nombre LIKE ? AND CodCategoria LIKE ? ");
             ps.setInt(1, CodEmpresa);
             ps.setString(2, "%" + Nombre + "%");
+            ps.setString(3, Categoria + "%");
             rs = ps.executeQuery();
             while (rs.next()) {
                 ProductoEntidad productoentidadlista = new ProductoEntidad();
@@ -64,29 +65,14 @@ public class Producto {
         return productoentidad;
     }
 
-    public List BuscarProductos(String ValorBusqueda, byte Consulta) {
-        String ConsultaSql = null;
-        String ValorBusquedaConsulta = null;
-
-        switch (Consulta) {
-            case 1:
-                ConsultaSql = "SELECT CodProducto, Nombre, Precio FROM Producto WHERE Nombre LIKE ? AND Disponible = true";
-                ValorBusquedaConsulta = "%" + ValorBusqueda + "%";
-                break;
-            case 2:
-                ConsultaSql = "SELECT CodProducto, Nombre, Precio FROM Producto WHERE CodCategoria = ? AND Disponible = true";
-                ValorBusquedaConsulta = ValorBusqueda;
-                break;
-            case 3:
-                ConsultaSql = "SELECT CodProducto, Nombre, Precio FROM Producto WHERE CodMarca = ? AND Disponible = true";
-                ValorBusquedaConsulta = ValorBusqueda;
-                break;
-        }
-
+    public List BuscarProductos(String Nombre, String Presentacion, String Marca, String Categotia) {
         ArrayList<ProductoEntidad> DatosProducto = new ArrayList<>();
         try {
-            PreparedStatement ps = conexion.prepareStatement(ConsultaSql);
-            ps.setString(1, ValorBusquedaConsulta);
+            PreparedStatement ps = conexion.prepareStatement("SELECT CodProducto, Nombre, Precio FROM Producto WHERE Disponible = true AND Nombre LIKE ? AND CodPresentacion LIKE ? AND CodMarca LIKE ? AND CodCategoria LIKE ? ");
+            ps.setString(1, "%" + Nombre + "%");
+            ps.setString(2, Presentacion + "%");
+            ps.setString(3, Marca + "%");
+            ps.setString(4, Categotia + "%");
             rs = ps.executeQuery();
             while (rs.next()) {
                 ProductoEntidad productoentidadlista = new ProductoEntidad();
@@ -101,7 +87,7 @@ public class Producto {
     }
 
     public boolean RegistrarProducto(ProductoEntidad DatosProducto) throws SQLException, IOException {
-        PreparedStatement ps = conexion.prepareStatement("INSERT INTO Producto (Nombre, Precio, Descripcion, Disponible, CodPresentacion, CodMarca, CodCategoria, Imagen, CodEmpresa) VALUES (?,?,?,true,(SELECT CodPresentacion FROM Presentacion WHERE Nombre = ? ),(SELECT CodMarca FROM Marca WHERE Nombre = ? ),(SELECT CodCategoria FROM Categoria WHERE Nombre = ? ),?,?)");
+        PreparedStatement ps = conexion.prepareStatement("INSERT INTO Producto (Nombre, Precio, Descripcion, Disponible, CodPresentacion, CodMarca, CodCategoria, Imagen, CodEmpresa) VALUES (?,?,?,true,?,?,?,?,?)");
         ps.setString(1, DatosProducto.ObtenerNombre());
         ps.setString(2, DatosProducto.ObtenerPrecio());
         ps.setString(3, DatosProducto.ObtenerDescripcion());
@@ -119,7 +105,7 @@ public class Producto {
 
     public boolean ModificarProducto(ProductoEntidad DatosProducto) throws SQLException, IOException {
         if (DatosProducto.ObtenerImagen() != null) {
-            PreparedStatement ps = conexion.prepareStatement("UPDATE Producto SET Nombre = ? ,Precio = ? ,Descripcion = ? ,Disponible = ? ,CodPresentacion = (SELECT CodPresentacion FROM Presentacion WHERE Nombre = ? ) ,CodMarca = (SELECT CodMarca FROM Marca WHERE Nombre = ? ) ,CodCategoria = (SELECT CodCategoria FROM Categoria WHERE Nombre = ? ) ,Imagen = ? WHERE CodProducto = ? ");
+            PreparedStatement ps = conexion.prepareStatement("UPDATE Producto SET Nombre = ? ,Precio = ? ,Descripcion = ? ,Disponible = ? ,CodPresentacion = ? ,CodMarca = ? ,CodCategoria = ? ,Imagen = ? WHERE CodProducto = ? ");
             ps.setString(1, DatosProducto.ObtenerNombre());
             ps.setString(2, DatosProducto.ObtenerPrecio());
             ps.setString(3, DatosProducto.ObtenerDescripcion());
@@ -131,7 +117,7 @@ public class Producto {
             ps.setInt(9, DatosProducto.ObtenerCodProducto());
             ResultadoConsulta = ps.executeUpdate();
         } else {
-            PreparedStatement ps = conexion.prepareStatement("UPDATE Producto SET Nombre = ? ,Precio = ? ,Descripcion = ? ,Disponible = ? ,CodPresentacion = (SELECT CodPresentacion FROM Presentacion WHERE Nombre = ? ) ,CodMarca = (SELECT CodMarca FROM Marca WHERE Nombre = ? ) ,CodCategoria = (SELECT CodCategoria FROM Categoria WHERE Nombre = ? ) WHERE CodProducto = ? ");
+            PreparedStatement ps = conexion.prepareStatement("UPDATE Producto SET Nombre = ? ,Precio = ? ,Descripcion = ? ,Disponible = ? ,CodPresentacion = ? ,CodMarca = ? ,CodCategoria = ? WHERE CodProducto = ? ");
             ps.setString(1, DatosProducto.ObtenerNombre());
             ps.setString(2, DatosProducto.ObtenerPrecio());
             ps.setString(3, DatosProducto.ObtenerDescripcion());

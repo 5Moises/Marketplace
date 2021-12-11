@@ -2,8 +2,8 @@ package Entidad;
 
 public class DistritoEntidad {
 
-    int CodDistrito;
-    String Nombre;
+    private int CodDistrito;
+    private String Nombre;
 
     public int ObtenerCodDistrito() {
         return CodDistrito;
